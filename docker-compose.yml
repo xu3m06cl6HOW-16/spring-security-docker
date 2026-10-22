@@ -1,0 +1,59 @@
+
+services:
+  mysql:
+    image: mysql:8.0.36
+    container_name: spring-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?請在.env中設定MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: mybatis
+      TZ: Asia/Taipei
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+    command: ["mysqld", "--lower_case_table_names=1", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_ai_ci"]
+    networks:
+      - spring-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:8
+    container_name: spring-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - spring-network
+    restart: unless-stopped
+
+  backend:
+    image: masteryuanhao/spring-security-backend:1.0
+    container_name: springboot-backend
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - spring-network
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  frontend:
+    image: masteryuanhao/spring-security-frontend:1.0
+    container_name: springboot-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - spring-network
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+
+networks:
+  spring-network:
+    driver: bridge

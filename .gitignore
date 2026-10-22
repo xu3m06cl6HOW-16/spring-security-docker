@@ -1,0 +1,28 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Database backups
+mybatis-backup.sql
+*.sql.bak
+
+# Logs
+*.log
+logs/
+
+# Java build output
+target/
+build/
+
+# IDE files
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
