@@ -56,33 +56,26 @@
 
 \## 五、啟動專案
 
-1\. 下載或複製本專案。
+1. 下載或複製本專案。
+2. 開啟終端機，切換至 `docker-compose.yml` 所在目錄。
+3. 複製環境設定檔並啟動專案：
 
-2\. 開啟終端機，切換至 `docker-compose.yml` 所在目錄。
+   ```powershell
+   Copy-Item .env.example .env
+   docker compose up -d
+   ```
 
-3\. 執行以下指令：
+4. 確認容器狀態：
 
-```bash
+   ```powershell
+   docker compose ps
+   ```
 
-docker compose up -d
+5. 查看後端日誌：
 
-```
-
-確認容器狀態：
-
-```bash
-
-docker compose ps
-
-```
-
-查看後端日誌：
-
-```bash
-
-docker logs --tail 100 springboot-backend
-
-```
+   ```powershell
+   docker logs --tail 100 springboot-backend
+   ```
 
 啟動完成後，開啟 http://localhost:8080 使用系統。
 
