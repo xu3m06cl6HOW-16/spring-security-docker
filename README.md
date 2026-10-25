@@ -166,9 +166,9 @@ docker cp spring-mysql:/tmp/mybatis-backup.sql ./mybatis-backup.sql
 
 ```bash
 
-docker pull masteryuanhao/spring-security-backend:1.0
+docker pull masteryuanhao/spring-security-backend:1.1
 
-docker pull masteryuanhao/spring-security-frontend:1.0
+docker pull masteryuanhao/spring-security-frontend:1.1
 
 ```
 
