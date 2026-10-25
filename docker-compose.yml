@@ -27,7 +27,7 @@ services:
     restart: unless-stopped
 
   backend:
-    image: masteryuanhao/spring-security-backend:1.0
+    image: masteryuanhao/spring-security-backend:1.1
     container_name: springboot-backend
     ports:
       - "8081:8081"
@@ -41,7 +41,7 @@ services:
       SPRING_PROFILES_ACTIVE: docker
 
   frontend:
-    image: masteryuanhao/spring-security-frontend:1.0
+    image: masteryuanhao/spring-security-frontend:1.1
     container_name: springboot-frontend
     ports:
       - "8080:80"

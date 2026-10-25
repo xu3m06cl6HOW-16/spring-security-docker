@@ -58,7 +58,7 @@
 
 1. 下載或複製本專案。
 2. 開啟終端機，切換至 `docker-compose.yml` 所在目錄。
-3. 複製環境設定檔並啟動專案：
+3. 於上方資料路徑位置輸入powershell並輸入下方命令(複製環境設定檔並啟動專案)：
 
    ```powershell
    Copy-Item .env.example .env
